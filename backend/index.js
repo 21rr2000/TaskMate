@@ -1,9 +1,13 @@
 const express=require("express");
+const cors=require("cors");
 const { createTodo, updateTodo } = require("./types");
 const { todo } = require("./db");
 const app=express();
 
 app.use(express.json());
+app.use(cors({
+    origin:"http://localhost:5173"
+}));
 //body{ title:string
 //      description:string
 //  }
@@ -30,7 +34,7 @@ app.post("/todo", async function (req,res){
 app.get("/todos", async function(req,res){
     const todos=await todo.find({});
     res.json({
-        todos
+        todos:todos
     })
 })
 

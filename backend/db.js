@@ -17,7 +17,7 @@ const todoSchema=mongoose.Schema({
     description:String,
     completed:Boolean
 })
-const todo=mongoose.model('TaskMate',todoSchema);
+const todo=mongoose.model('Todo', todoSchema, 'taskmates');
 module.exports={
     todo
 }
